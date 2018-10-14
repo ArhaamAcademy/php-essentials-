@@ -9,7 +9,7 @@ if(isset($_POST['create']))
     $name             = $_POST['cat_name'];
     $email            = $_POST['email'];
     $contact_number   = $_POST['contact_number'];
-    $date             = date('Y-m-d');
+    $create_date      = date('Y-m-d');
     $status           = 1;
     
     if(empty($name))
@@ -17,8 +17,8 @@ if(isset($_POST['create']))
       throw new Exception("Name cannot be empty!");
     }
     
-    $statement = $db->prepare("INSERT INTO users (name, email, contact_number, date, status) VALUES(?, ?, ?)");
-    $statement->execute(array($name, $email, $contact_number, $date, $status));
+    $statement = $db->prepare("INSERT INTO users (name, email, contact_number, create_date, status) VALUES(?, ?, ?, ?)");
+    $statement->execute(array($name, $email, $contact_number, $create_date, $status));
     
     $success = "The inserte successfully...!";
   }
