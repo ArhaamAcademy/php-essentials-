@@ -21,7 +21,7 @@ if(isset($_POST['create']))
     $stmt = $db->prepare("INSERT INTO users (name, email, contact_number, create_date, status) VALUES(?, ?, ?, ?)");
     $stmt->execute(array($name, $email, $contact_number, $create_date, $status));
     
-    $success = "The inserte successfully...!";
+    $success = "The record inserted successfully...!";
   }
   catch(Exception $e);
   {
