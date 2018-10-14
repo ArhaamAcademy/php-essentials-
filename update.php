@@ -7,9 +7,9 @@ if(isset($_POST['update']))
   try
   {
   
-    if(isset($_GET['id'])
+    if(isset($_REQUEST['id'])
     {
-      $id = $_GET['id'];
+      $id = $_REQUEST['id'];
     }
     else
     {
