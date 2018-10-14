@@ -17,8 +17,8 @@ if(isset($_POST['create']))
       throw new Exception("Name cannot be empty!");
     }
     
-    $statement = $db->prepare("INSERT INTO users (name, email, contact_number, create_date, status) VALUES(?, ?, ?, ?)");
-    $statement->execute(array($name, $email, $contact_number, $create_date, $status));
+    $stmt = $db->prepare("INSERT INTO users (name, email, contact_number, create_date, status) VALUES(?, ?, ?, ?)");
+    $stmt->execute(array($name, $email, $contact_number, $create_date, $status));
     
     $success = "The inserte successfully...!";
   }
