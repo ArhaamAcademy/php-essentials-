@@ -1,2 +1,2 @@
-# php-essentials-
-This project is containing very basic code for Insert, Update, Delete, Database connection &amp; other very common utilities  required for a PHP project
+# PHP PDO Basics
+This project is containing the code of PDO (PHP Data Object) basics for creating a complete CRUD application.
