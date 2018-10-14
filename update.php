@@ -31,7 +31,7 @@ if(isset($_POST['update']))
     $stmt = $db->prepare("UPDATE set users name = ?, email = ?, contact_number = ?, created_date = ?, ststus = ?, id = ?);
     $stmt->execute(array($name, $email, $contact_number, $create_date, $status, $id));
     
-    $success = "The field update successfully...!";
+    $success = "The record updated successfully...!";
   }
   catch(Exception $e);
   {
