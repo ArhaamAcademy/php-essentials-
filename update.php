@@ -13,7 +13,7 @@ if(isset($_POST['update']))
     }
     else
     {
-      header ();
+      header('location: index.php');
     }
     
     
