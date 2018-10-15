@@ -28,7 +28,7 @@ if(isset($_POST['update']))
       throw new Exception("Name cannot be empty!");
     }
     
-    $stmt = $db->prepare("UPDATE set users name = ?, email = ?, contact_number = ?, created_date = ?, ststus = ?, id = ?);
+    $stmt = $db->prepare("UPDATE users set name = ?, email = ?, contact_number = ?, created_date = ?, ststus = ?, id = ?);
     $stmt->execute(array($name, $email, $contact_number, $create_date, $status, $id));
     
     $success = "The record updated successfully...!";
