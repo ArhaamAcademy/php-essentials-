@@ -17,7 +17,7 @@ if(isset($_POST['update']))
     }
     
     
-    $name             = $_POST['cat_name'];
+    $name             = $_POST['name'];
     $email            = $_POST['email'];
     $contact_number   = $_POST['contact_number'];
     $created_date      = date('Y-m-d');
