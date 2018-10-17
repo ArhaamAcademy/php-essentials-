@@ -3,17 +3,16 @@
   <head>
       <meta charset="UTF-8">
       <title>Print</title>
-
-      <script>
-          function printContent(el){
-              var restorepage = document.body.innerHTML;
-              var printcontent = document.getElementById(el).innerHTML;
-              document.body.innerHTML = printcontent; 
-              window.print();
-              document.body.innerHTML = restorepage;
-          }
-      </script>
   </head>
+  <script>
+      function printContent(el){
+          var restorepage = document.body.innerHTML;
+          var printcontent = document.getElementById(el).innerHTML;
+          document.body.innerHTML = printcontent; 
+          window.print();
+          document.body.innerHTML = restorepage;
+      }
+  </script>
   <body>
       <div class="" id="printable-1">
 
