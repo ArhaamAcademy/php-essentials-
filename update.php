@@ -33,7 +33,7 @@ if(isset($_POST['update']))
     
     $success = "The record updated successfully...!";
   }
-  catch(Exception $e);
+  catch(Exception $e)
   {
     $error = $e->getMessage();
   }
