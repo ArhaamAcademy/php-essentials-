@@ -20,7 +20,10 @@ try {
 catch(PDOException $e){
 	echo "Connection error".$e->getMessage();
 }
-<!--Old code for normal MySQL-->
+
+
+// Old code for normal MySQL
+
 //mysql_connect('localhost','root','') or die('Cannot connect to the server....!');
 //mysql_select_db('login_pdo') or die('Database cannot find...!');
 
@@ -39,12 +42,13 @@ $stmt->execute(array($field1, $field2, $field3));
 
 
 -------------------------------------------------------------------
-Search with PDO
+Retrive with PDO
 -------------------------------------------------------------------
+$id = 1;
 
-$statement = $db->prepare("SELECT * FROM tbl_category WHERE cat_id =?");
-$statement->execute(array($cat_id));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $db->prepare("SELECT * FROM table WHERE id =?");
+$stmt->execute(array($id));
+$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 foreach($result as $row)
 {
 
@@ -54,8 +58,12 @@ foreach($result as $row)
 Update with PDO
 -------------------------------------------------------------------
 
-$statement = $db->prepare("UPDATE tbl_category SET cat_name=?, WHERE cat_id=?");
-$statement->execute(array($cat_name, $id));
+$field1 = $_POST['field1'];
+$field2 = $_POST['field2'];
+$field3 = $_POST['field3'];
+
+$stmt = $db->prepare("UPDATE tbl_category SET field1=?, field2=?, field3=? WHERE cat_id=?");
+$stmt->execute(array($field1, $field2, $field3));
 
 
 -------------------------------------------------------------------
