@@ -15,6 +15,7 @@ $dbpass = '';
 try {
 	$db = new PDO("mysql:host={$dbhost};dbname={$dbname}",$dbuser,$dbpass);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::FETCH_OBJ);
+	$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 }
 
 catch(PDOException $e){
@@ -48,7 +49,7 @@ $id = 1;
 
 $stmt = $db->prepare("SELECT * FROM table WHERE id =?");
 $stmt->execute(array($id));
-$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+$result = $stmt->fetchAll();
 foreach($result as $row)
 {
 
