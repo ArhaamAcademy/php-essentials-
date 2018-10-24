@@ -25,8 +25,8 @@ catch(PDOException $e){
 
 // Old code for normal MySQL
 
-//mysql_connect('localhost','root','') or die('Cannot connect to the server....!');
-//mysql_select_db('login_pdo') or die('Database cannot find...!');
+// mysql_connect('localhost','root','') or die('Cannot connect to the server....!');
+// mysql_select_db('login_pdo') or die('Database cannot find...!');
 
 
 
@@ -262,11 +262,4 @@ if(!(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]
 	throw new Exception("Please enter a valid email address.");
 }
 
--------------------------------------------------------------------
 
-
--------------------------------------------------------------------
--------------------------------------------------------------------
--------------------------------------------------------------------
--------------------------------------------------------------------
--------------------------------------------------------------------
