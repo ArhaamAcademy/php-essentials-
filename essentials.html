@@ -14,7 +14,7 @@ $dbpass = '';
 
 try {
 	$db = new PDO("mysql:host={$dbhost};dbname={$dbname}",$dbuser,$dbpass);
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::FETCH_OBJ);
 }
 
 catch(PDOException $e){
@@ -62,16 +62,17 @@ $field1 = $_POST['field1'];
 $field2 = $_POST['field2'];
 $field3 = $_POST['field3'];
 
-$stmt = $db->prepare("UPDATE tbl_category SET field1=?, field2=?, field3=? WHERE cat_id=?");
+$stmt = $db->prepare("UPDATE table SET field1=?, field2=?, field3=? WHERE cat_id=?");
 $stmt->execute(array($field1, $field2, $field3));
 
 
 -------------------------------------------------------------------
 Delete with PDO
 -------------------------------------------------------------------
+$id = 1;
 
-$statement = $db->prepare("DELETE FROM tbl_category WHERE cat_id =?");
-$statement->execute(array($cat_id));
+$stmt = $db->prepare("DELETE FROM table WHERE id =?");
+$stmt->execute(array($id));
 
 -------------------------------------------------------------------
 Showing Error/ Success Message
@@ -113,12 +114,10 @@ Using substr
 -------------------------------------------------------------------
 
 // get specific part of a string value.
-$con_date = date("Y-m-d");
+$date = date("Y-m-d");
 $day = substr($con_date,8,2);
 $month = substr($con_date,5,2);
 $year = substr($con_date,0,4);
-
-include("date-funtion-month-eng.php");	
 
 echo $day.' '.$month.' '.$year;
 -------------------------------------------------------------------
@@ -145,7 +144,7 @@ Fancy Box Using
 
 -------------------------------------------------------------------
 
-<!--FancyBox Before Body </body>-->
+<!--FancyBox Before Body Tag ending </body>-->
     
     <script type="text/javascript">
     
@@ -188,9 +187,9 @@ CK Editor Using Link: http://ckeditor.com
 Getting the next auto increment value of a table
 -------------------------------------------------------------------
 
-$statement = $db->prepare("SHOW TABLE STATUS LIKE 'tbl_post'");
-$statement->execute();
-$result = $statement->fetchAll();
+$stmt = $db->prepare("SHOW TABLE STATUS LIKE 'tbl_post'");
+$stmt->execute();
+$result = $stmt->fetchAll();
 foreach($result as $row)
 $new_id = $row[10]; // here 10 is fixed. always use 10 here to get auto increment id
 
@@ -219,7 +218,7 @@ if(($file_ext!='.png')&&($file_ext!='.jpg')&&($file_ext!='.jpeg')&&($file_ext!='
 Showing Limited numbers of Words
 -------------------------------------------------------------------
 
-<!--Showing Limited numbers of words-->
+// Exarpt by word count
   <?php
   	$pieces = explode(" ", $row['post_description']);
 	$final_words = implode(" ", array_splice($pieces, 0, 150));
