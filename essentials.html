@@ -30,8 +30,12 @@ catch(PDOException $e){
 Insert to MySQL with PDO
 -------------------------------------------------------------------
 
-$statement = $db->prepare("INSERT INTO tbl_category (cat_name) VALUES(?)");
-$statement->execute(array($_POST['cat_name']));
+$field1 = $_POST['field1'];
+$field2 = $_POST['field2'];
+$field3 = $_POST['field3'];
+
+$stmt = $db->prepare("INSERT INTO table (field1, field2, field3) VALUES(?, ?, ?)");
+$stmt->execute(array($field1, $field2, $field3));
 
 
 -------------------------------------------------------------------
