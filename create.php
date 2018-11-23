@@ -23,7 +23,7 @@ if(isset($_POST['create']))
     
     $success = "The record inserted successfully...!";
   }
-  catch(Exception $e);
+  catch(Exception $e)
   {
     $error = $e->getMessage();
   }
